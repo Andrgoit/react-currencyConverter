@@ -8,7 +8,7 @@ function App() {
         className="text-4xl font-bold text-white"
         style={{ textShadow: "2px 2px 4px black" }}
       >
-        Vite + React + Tailwind
+        Currency Converter
       </h1>
       <a href="https://github.com/Andrgoit/react-template" target="_blank">
         <img src={github} alt="github icon" />
