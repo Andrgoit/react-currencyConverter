@@ -1,18 +1,38 @@
+import { useState } from "react";
+import {
+  Form,
+  Title,
+  AmountInput,
+  ChangeButton,
+  CurrencySelector,
+  Footer,
+  ConvertButton,
+  ResultField,
+} from "@/components";
+
+import currencies from "./data/currencies";
+import convertRequest from "@/data/api/convertRequest";
+
 import "./index.css";
-import github from "@/assets/github.svg";
 
 function App() {
+  const { amount, setAmount } = useState(1);
+  const { convertFrom, setConvertFrom } = useState(null);
+  const { convertTo, setConvertTo } = useState(null);
+  const { rate, setRate } = useState(0);
+
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-5 bg-gradient-to-br from-[#1CB5E0] to-[#000851]">
-      <h1
-        className="text-4xl font-bold text-white"
-        style={{ textShadow: "2px 2px 4px black" }}
-      >
-        Currency Converter
-      </h1>
-      <a href="https://github.com/Andrgoit/react-template" target="_blank">
-        <img src={github} alt="github icon" />
-      </a>
+      <Form>
+        <Title title="Currency converter" />
+        <AmountInput />
+        <CurrencySelector currencies={currencies} title="From" />
+        <ChangeButton />
+        <CurrencySelector currencies={currencies} title="To" />
+        <ConvertButton />
+        <ResultField />
+        <Footer />
+      </Form>
     </div>
   );
 }
