@@ -3,13 +3,14 @@ import styles from "@/components/Footer/Footer.module.css";
 
 export default function Footer() {
   return (
-    <div>
+    <footer className={styles.footer}>
       <a
         href="https://github.com/Andrgoit/react-currencyConverter"
         target="_blank"
+        className={styles.footerLink}
       >
-        <img src={github} alt="github icon" />
+        <img src={github} alt="github icon" className={styles.footerImage} />
       </a>
-    </div>
+    </footer>
   );
 }

@@ -1,0 +1,9 @@
+.resultFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}

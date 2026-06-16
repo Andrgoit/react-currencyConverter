@@ -10,7 +10,7 @@ import {
   ResultField,
 } from "@/components";
 
-import currencies from "./data/currencies";
+import currencies from "@/data/currencies";
 import convertRequest from "@/api/convertRequest";
 
 import "./index.css";
@@ -20,7 +20,6 @@ function App() {
   const [convertFrom, setConvertFrom] = useState(null);
   const [convertTo, setConvertTo] = useState(null);
   const [rate, setRate] = useState(0);
-  const [result, setResult] = useState(0);
 
   const isDisabled = amount && convertFrom && convertTo;
 
@@ -33,17 +32,12 @@ function App() {
     setConvertTo(convertFrom);
   };
 
-  const convertationResult = () => {
-    const res = Number(amount) * Number(rate);
-    setResult(res);
-  };
   const convertation = async () => {
     const base = convertFrom.value;
     const quote = convertTo.value;
+
     try {
       const { rate } = await convertRequest(base, quote);
-      console.log("rate", rate);
-
       setRate(rate);
     } catch (error) {
       console.log(error);
@@ -73,6 +67,7 @@ function App() {
           convertFrom={convertFrom}
           convertTo={convertTo}
           rate={rate}
+          amount={amount}
         />
         <Footer />
       </Form>

@@ -8,6 +8,7 @@ export default function AmountInput({ amount, amountChange }) {
         value={amount}
         onChange={(e) => amountChange(e.target.value)}
         className={styles.amountInput}
+        placeholder="Enter an amount, please..."
       />
     </div>
   );

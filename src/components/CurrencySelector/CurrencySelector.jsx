@@ -32,7 +32,9 @@ export default function CurrencySelector({
               />
             </div>
 
-            <span className={styles.selectorLabel}>{option.label}</span>
+            <span className={styles.selectorLabel}>
+              {option.label} ({option.value})
+            </span>
           </div>
         )}
       />

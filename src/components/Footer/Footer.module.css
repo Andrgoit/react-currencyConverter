@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerLink {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.footerLink:hover {
+  transform: scale(1.05);
+}
+.footerImage {
+  width: 32px;
+  height: 32px;
+}
