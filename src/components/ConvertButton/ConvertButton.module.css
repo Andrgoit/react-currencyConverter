@@ -1,0 +1,25 @@
+.buttonWrapper {
+  width: 100%;
+}
+.button {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #c5c2c2;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #12816e;
+  transition: transform 0.2s ease-in-out;
+  outline: none;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+.button:active {
+  transform: scale(1);
+}
+.button:disabled {
+  cursor: not-allowed;
+  background-color: #c5c2c2;
+}

@@ -1,0 +1,28 @@
+.selectorWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.selectorTitle {
+  color: #ffffff;
+}
+.selectorItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 5px;
+}
+.selectorImageWrapper {
+  width: 32px;
+  height: 24px;
+  border: 1px solid #cecdcd;
+}
+.selectorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selectorLabel {
+}

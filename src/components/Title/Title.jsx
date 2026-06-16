@@ -2,8 +2,8 @@ import styles from "@/components/Title/Title.module.css";
 
 export default function Title({ title = "" }) {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className={styles.titleLayout}>
+      <h1 className={styles.title}>{title}</h1>
     </div>
   );
 }

@@ -15,10 +15,10 @@ import usd from "@/assets/icons/cyrrencyFlags/USD.svg";
 
 const currencies = [
   {
-    iso_code: "UAH",
-    icon: uah,
-    name: "Ukrainian Hryvnia",
-    symbol: "₴",
+    iso_code: "EUR",
+    icon: eur,
+    name: "Euro",
+    symbol: "€",
   },
   {
     iso_code: "USD",
@@ -27,11 +27,12 @@ const currencies = [
     symbol: "$",
   },
   {
-    iso_code: "EUR",
-    icon: eur,
-    name: "Euro",
-    symbol: "€",
+    iso_code: "UAH",
+    icon: uah,
+    name: "Ukrainian Hryvnia",
+    symbol: "₴",
   },
+
   {
     iso_code: "RUB",
     icon: rub,

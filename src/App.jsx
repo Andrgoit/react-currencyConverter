@@ -11,29 +11,72 @@ import {
 } from "@/components";
 
 import currencies from "./data/currencies";
-import convertRequest from "@/data/api/convertRequest";
+import convertRequest from "@/api/convertRequest";
 
 import "./index.css";
 
 function App() {
-  const { amount, setAmount } = useState(1);
-  const { convertFrom, setConvertFrom } = useState(null);
-  const { convertTo, setConvertTo } = useState(null);
-  const { rate, setRate } = useState(0);
+  const [amount, setAmount] = useState("");
+  const [convertFrom, setConvertFrom] = useState(null);
+  const [convertTo, setConvertTo] = useState(null);
+  const [rate, setRate] = useState(0);
+  const [result, setResult] = useState(0);
+
+  const isDisabled = amount && convertFrom && convertTo;
+
+  const amountChanger = (amount) => {
+    setAmount(amount);
+  };
+
+  const selectedChanger = () => {
+    setConvertFrom(convertTo);
+    setConvertTo(convertFrom);
+  };
+
+  const convertationResult = () => {
+    const res = Number(amount) * Number(rate);
+    setResult(res);
+  };
+  const convertation = async () => {
+    const base = convertFrom.value;
+    const quote = convertTo.value;
+    try {
+      const { rate } = await convertRequest(base, quote);
+      console.log("rate", rate);
+
+      setRate(rate);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center gap-5 bg-gradient-to-br from-[#1CB5E0] to-[#000851]">
+    <main>
       <Form>
         <Title title="Currency converter" />
-        <AmountInput />
-        <CurrencySelector currencies={currencies} title="From" />
-        <ChangeButton />
-        <CurrencySelector currencies={currencies} title="To" />
-        <ConvertButton />
-        <ResultField />
+        <AmountInput amountChange={amountChanger} amount={amount} />
+        <CurrencySelector
+          currencies={currencies}
+          title="From"
+          selectedCurrency={convertFrom}
+          setSelectedCurrency={setConvertFrom}
+        />
+        <ChangeButton onClick={selectedChanger} />
+        <CurrencySelector
+          currencies={currencies}
+          title="To"
+          selectedCurrency={convertTo}
+          setSelectedCurrency={setConvertTo}
+        />
+        <ConvertButton disabled={isDisabled} onClick={convertation} />
+        <ResultField
+          convertFrom={convertFrom}
+          convertTo={convertTo}
+          rate={rate}
+        />
         <Footer />
       </Form>
-    </div>
+    </main>
   );
 }
 

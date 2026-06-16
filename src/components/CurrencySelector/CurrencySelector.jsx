@@ -2,9 +2,12 @@ import { useState } from "react";
 import Select from "react-select";
 import styles from "@/components/CurrencySelector/CurrencySelector.module.css";
 
-export default function CurrencySelector({ currencies = [], title = "" }) {
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
-
+export default function CurrencySelector({
+  currencies = [],
+  title = "",
+  selectedCurrency,
+  setSelectedCurrency,
+}) {
   const options = currencies.map(({ iso_code, icon, name }) => ({
     value: iso_code,
     label: name,
@@ -12,23 +15,24 @@ export default function CurrencySelector({ currencies = [], title = "" }) {
   }));
 
   return (
-    <div>
-      <span>{title}</span>
+    <div className={styles.selectorWrapper}>
+      <span className={styles.selectorTitle}>{title}</span>
       <Select
         options={options}
         value={selectedCurrency}
         onChange={setSelectedCurrency}
+        placeholder="Select a currency, please..."
         formatOptionLabel={(option) => (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <img src={option.icon} alt={option.label} width={20} height={20} />
+          <div className={styles.selectorItem}>
+            <div className={styles.selectorImageWrapper}>
+              <img
+                src={option.icon}
+                alt={option.label}
+                className={styles.selectorImage}
+              />
+            </div>
 
-            <span>{option.label}</span>
+            <span className={styles.selectorLabel}>{option.label}</span>
           </div>
         )}
       />

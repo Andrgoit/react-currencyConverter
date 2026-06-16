@@ -1,9 +1,14 @@
 import styles from "@/components/AmountInput/AmountInput.module.css";
 
-export default function AmountInput({ amount = 1, amountChange }) {
+export default function AmountInput({ amount, amountChange }) {
   return (
-    <div>
-      <input type="number" value={amount} onChange={amountChange} />
+    <div className={styles.inputWrapper}>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => amountChange(e.target.value)}
+        className={styles.amountInput}
+      />
     </div>
   );
 }

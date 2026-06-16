@@ -1,0 +1,11 @@
+.inputWrapper {
+  width: 100%;
+}
+
+.amountInput {
+  outline: none;
+  width: 100%;
+  height: 32px;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
