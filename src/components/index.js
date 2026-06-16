@@ -6,6 +6,7 @@ import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import Footer from "./Footer/Footer";
 import ConvertButton from "./ConvertButton/ConvertButton";
 import ResultField from "./ResultField/ResultField";
+import ChartField from "./ChartField/ChartField";
 
 export {
   Form,
@@ -16,4 +17,5 @@ export {
   Footer,
   ConvertButton,
   ResultField,
+  ChartField,
 };

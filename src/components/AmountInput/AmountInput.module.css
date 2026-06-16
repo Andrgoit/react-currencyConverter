@@ -1,5 +1,6 @@
 .inputWrapper {
   width: 100%;
+  box-shadow: 2px 8px 16px #000;
 }
 
 .amountInput {

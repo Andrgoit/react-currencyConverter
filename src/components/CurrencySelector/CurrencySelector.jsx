@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Select from "react-select";
 import styles from "@/components/CurrencySelector/CurrencySelector.module.css";
 
@@ -18,6 +17,7 @@ export default function CurrencySelector({
     <div className={styles.selectorWrapper}>
       <span className={styles.selectorTitle}>{title}</span>
       <Select
+        className={styles.selector}
         options={options}
         value={selectedCurrency}
         onChange={setSelectedCurrency}
