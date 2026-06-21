@@ -19,6 +19,8 @@ export default function CurrencySelector({
       <Select
         className={styles.selector}
         options={options}
+        isSearchable={false}
+        isClearable={false}
         value={selectedCurrency}
         onChange={setSelectedCurrency}
         placeholder="Select a currency, please..."
